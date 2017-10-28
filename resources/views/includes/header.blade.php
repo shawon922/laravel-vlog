@@ -19,11 +19,11 @@
         <div class="collapse navbar-collapse" id="app-navbar-collapse">
             <!-- Left Side Of Navbar -->
             <ul class="nav navbar-nav">
-                <li><a class="nav-link active" href="{{ route('post-list') }}">Home</a></li>
-                <li><a class="nav-link" href="#">New features</a></li>
-                <li><a class="nav-link" href="#">Press</a></li>
-                <li><a class="nav-link" href="#">New hires</a></li>
-                <li><a class="nav-link" href="#">About</a></li>
+                <li><a class="nav-link active" href="{{ route('post-list') }}"> {{ __('navbar.home') }}</a></li>
+                <li><a class="nav-link" href="#">{{ __('navbar.new_features') }}</a></li>
+                <li><a class="nav-link" href="#">{{ __('navbar.press') }}</a></li>
+                <li><a class="nav-link" href="#">{{ __('navbar.new_hires') }}</a></li>
+                <li><a class="nav-link" href="#">{{ __('navbar.about') }}</a></li>
             </ul>
 
             <!-- Right Side Of Navbar -->

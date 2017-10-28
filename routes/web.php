@@ -20,17 +20,20 @@ use App\Http\Resources\User as UserResource;
 use App\Http\Resources\UserCollection;
 */
 
-Route::get('/', 'PostsController@index')->name('post-list');
-Route::get('/posts/create', 'PostsController@create')->name('post-create');
-Route::post('/posts', 'PostsController@store')->name('post-store');
-Route::get('/posts/{post}', 'PostsController@show')->name('post-details');
-Route::post('/posts/{post}/comment', 'CommentsController@store')->name('comment-store');
-Route::get('/posts/tags/{tag}', 'TagsController@index')->name('posts-by-tags');
+
+Route::group(['prefix' => app()->getLocale(), 'middleware' => ['locale']], function() {
+	Route::get('/', 'PostsController@index')->name('post-list');
+	Route::get('/posts/create', 'PostsController@create')->name('post-create');
+	Route::post('/posts', 'PostsController@store')->name('post-store');
+	Route::get('/posts/{post}', 'PostsController@show')->name('post-details');
+	Route::post('/posts/{post}/comment', 'CommentsController@store')->name('comment-store');
+	Route::get('/posts/tags/{tag}', 'TagsController@index')->name('posts-by-tags');
 
 
-Auth::routes();
+	Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+	Route::get('/home', 'HomeController@index')->name('home');
+});
 
 /*Routes for API*/
 

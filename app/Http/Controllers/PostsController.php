@@ -17,6 +17,7 @@ class PostsController extends Controller
     {
         $this->middleware('auth', ['except' => ['index', 'show']]);
     }
+    
     public function index()
     {
     	$title = 'Post List';
