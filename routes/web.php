@@ -20,6 +20,12 @@ use App\Http\Resources\User as UserResource;
 use App\Http\Resources\UserCollection;
 */
 
+$locale = request()->segment(1);
+$languages = config('app.locales');
+
+if (in_array($locale, $languages)) {
+    app()->setLocale($locale);
+}
 
 Route::group(['prefix' => app()->getLocale(), 'middleware' => ['locale']], function() {
 	Route::get('/', 'PostsController@index')->name('post-list');
