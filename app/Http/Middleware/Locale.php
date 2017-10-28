@@ -21,7 +21,7 @@ class Locale
         if (in_array($locale, $languages)) {
             app()->setLocale($locale);
         } else {
-            dd(request());
+            //dd(request());
         }
 
         return $next($request);
